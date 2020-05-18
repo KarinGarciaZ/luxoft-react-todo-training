@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-const Item = ({id, text, completed, removeItem, completeItem}) => {
+const Item = memo(({id, text, completed, removeItem, completeItem}) => {
   const classes = ['list-item'];
   
   if ( completed )
@@ -12,6 +12,6 @@ const Item = ({id, text, completed, removeItem, completeItem}) => {
       <span className="list-item-close" onClick={removeItem.bind(this, id)}>X</span>
     </li>
   )
-};
+});
 
 export default Item;

@@ -39,14 +39,14 @@ const App = () => {
     dispatch({type: 'add', payload: newItem});
   }, []);
 
-  const removeItem = (id, e) => {
+  const removeItem = useCallback( (id, e) => {
     e.stopPropagation();
     dispatch({type: 'remove', payload: id});
-  };
+  }, []);
 
-  const completeItem = id => {
+  const completeItem = useCallback( id => {
     dispatch({type: 'complete', payload: id});
-  };
+  }, []);
 
   const itemsToLoad = todoList.map( item => {
     return <Item 
